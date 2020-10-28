@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+        <!-- Jquery -->
+    <script src="js/jq.js"></script>
+    <title>Basic Math Web App By Swapnil Mane </title>
+</head>
+<style>
+	*
+	{
+		font-family: 'Ubuntu', sans-serif;
+	}
+    .card {
+        text-align: center;
+        margin-top: 20px !important;
+    }
+    
+    .card input {
+        height: 80px !important;
+        width: 90px !important;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+    
+    button {
+        background: #fab005;
+        color: white !important;
+    }
+    
+    .btn-sm {
+        margin-bottom: 10px;
+    }
+    
+    .animate-this {
+        color: #fab005;
+    }
+    
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div  id="home" class="text-center my-3">
+        <button class="btn btn-sm ">Home</button>
+        <hr>
+        <h2 class="text-warning my-3">
+            Math is fun :-)
+        </h2>
+    </div>
+    <section id="main_section">
+        <div class="container text-center">
+            <h2 class="my-2 animate-this"> JS Basic Math : <br> Math is Fun...</h2>
+            <hr>
+            <div class="row">
+                <div class="d-block col-md-5  m-auto col-8 card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Addition</h2>
+                            <hr>
+                            <button class="btn btn-sm" id="addition">Let's jump into it...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-block col-md-5  m-auto col-8 card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Subtraction</h2>
+                            <hr>
+                            <button class="btn btn-sm " id="Subtraction">Let's jump into it...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-block col-md-5  m-auto col-8 card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Multiplication</h2>
+                            <hr>
+                            <button class="btn btn-sm " id="multiplication">Let's jump into it...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-block col-md-5 m-auto col-8 card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Division</h2>
+                            <hr>
+                            <button class="btn btn-sm " id="division">Let's jump into it...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jquery script -->
+    <script>
+        $(document).ready(function() {
+            $("#home").hide();
+            $("#addition").click(function() {
+                $("#main_section").fadeOut();
+                $(".add").show();
+                $(".sub").hide();
+                $(".mul").hide();
+                $(".div").hide();
+                $("#home").fadeIn();
+            });
+            $("#Subtraction").click(function() {
+                $("#main_section").fadeOut();
+                $(".add").hide();
+                $(".sub").show();
+                $(".mul").hide();
+                $(".div").hide();
+                $("#home").fadeIn();
+            });
+            $("#multiplication").click(function() {
+                $("#main_section").fadeOut();
+                $(".add").hide();
+                $(".sub").hide();
+                $(".mul").show();
+                $(".div").hide();
+                $("#home").fadeIn();
+            });
+            $("#division").click(function() {
+                $("#main_section").fadeOut();
+                $(".add").hide();
+                $(".sub").hide();
+                $(".mul").hide();
+                $(".div").show();
+                $("#home").fadeIn();
+            });
+            $("#home").click(function() {
+                $("#main_section").fadeIn();
+                $(".add").hide();
+                $(".sub").hide();
+                $(".mul").hide();
+                $(".div").hide();
+                $("#home").fadeOut();
+            });
+
+        });
+    </script>
+
+    <!-- addition data -->
+    <div id="addition" class="add container text-center" style="display: none !important;">
+        
+        <h2>Addition</h2>
+        <hr><br>
+        <div class="row">
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-1" class="h2">
+            </div>
+            <div class="d-block m-auto col-8 col-md-4"><br>
+                <h2>+</h2>
+            </div>
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-2" class="h2">
+            </div>
+        </div>
+        <hr class="mt-2">
+        <label for="answer" class="m-auto">Your Answer !</label>
+        <div class="row mt-2 text-center">
+            <div class="d-block col-md-4 col-8 m-auto card">
+                <input type="number" id="answer" class="h2">
+            </div>
+        </div><br>
+        <button id="check" class="m-auto btn btn-sm ">Check</button>
+        <div class="answer mt-1">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function myfun() {
+                var ran_1 = Math.floor(Math.random() * 50);
+                var ran_2 = Math.floor(Math.random() * 50);
+
+                var one = $("#num-1").val(ran_1);
+                var two = $("#num-2").val(ran_2);
+
+                $("#check").click(function() {
+                    var ans = $("#answer").val();
+                    if (ans == "") {
+                        alert("Write your answer first..");
+                    } else {
+                        var sum = parseInt(ran_1) + parseInt(ran_2);
+                        if (sum == ans) {
+                            $(".answer").slideDown("slow").html("<div class='alert alert-success mt-1'><b>Well Done !!</b><hr><p>Your Answer is Correct !!</p> <button class='btn-sm btn btn-success' id='next'>Next</button></div>");
+                            $("#next").click(function() {
+                                $("#answer").val("");
+                                $(".answer").html("");
+                                myfun();
+                            });
+                        } else {
+                            $(".answer").html("<div class='alert alert-danger mt-1'><b>Wrong !!</b><hr><p>Your Answer is Wrong !!</p> <button class='btn-sm btn btn-danger' id='try_again'>Try Again</button></div>");
+                            $("#try_again").click(function() {
+                                $("#answer").val("");
+                                $(".answer").html("");
+                            });
+                        }
+                    }
+                });
+            }
+            myfun();
+            $(".swapnil").dblclick(function() {
+                $(".add").hide();
+                $(".sub").hide();
+                $(".mul").hide();
+                $(".div").hide();
+                $("#home").hide();
+                $("#main_section").fadeOut();
+                $("footer").fadeOut();
+                $("#main_section").fadeIn().html("<div class='mt-3'><div class='my-3 pl-2 text-left h7'> Murano : You are Shinichi Izumi, aren't you ? <br><br>Shinichi : I've been asking myself the same thing.<br><br>Murano (frightened): What ??<br><br>Shinichi : Oh, c'mon. Of course I am. : )<br><br><img src='images/shinichi.png' class='img-thumbnail' alt='shinichi_izumi'><br><br> Shinichi : and You are Murano Satomi, aren't you ??<br><br>Murano : (Smiling) Mmmhnnn. : )</div><hr><div class='mt-4 text-center m-auto'><p> You shouldn't be here. Unless you are...let it go... bt still you are. I know you must be wondering what is this ?...Let me tell you, this is the conversation between two characters which I have taken from one of my favourite anime series' - Parasyte. And there is no connection between this image and the conversation. These both things are completely different. bt the conersation and the image are from the same series... <br> <span class='text-danger'>Just refresh the page and it will take you to the main page. : )</span></p></div> ");
+            });
+        });
+    </script>
+    <!-- addition data -->
+
+    <!-- Subtraction data -->
+    <div class="container text-center sub" style="display: none;" id="Subtraction">
+       
+        <h2>Subtraction</h2>
+        <hr><br>
+        <div class="row">
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-sub-1" class="h2">
+            </div>
+            <div class="d-block m-auto col-8 col-md-4"><br>
+                <h2>-</h2>
+            </div>
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-sub-2" class="h2">
+            </div>
+        </div>
+        <hr class="mt-2">
+        <label for="answer" class="m-auto">Your Answer !</label><br>
+        <small class="font-weight-bold">Note : Don't forget to put - symbol if the second number is larger than the first number..<br>
+        Eg. 4-8 = ? then answer should be <b>- 4</b> instead of <b>4</b>...</small>
+        <div class="row mt-2 text-center">
+            <div class="d-block col-md-4 col-8 m-auto card">
+                <input type="number" id="sub_answer" class="h2">
+            </div>
+        </div><br>
+        <button id="sub_check" class="m-auto btn btn-sm ">Check</button>
+        <div class="sub_answer mt-1">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function myfun() {
+                var ran_sub_1 = Math.floor(Math.random() * 30);
+                var ran_sub_2 = Math.floor(Math.random() * 10);
+
+                var one = $("#num-sub-1").val(ran_sub_1);
+                var two = $("#num-sub-2").val(ran_sub_2);
+
+                $("#sub_check").click(function() {
+                    var ans = $("#sub_answer").val();
+                    if (ans == "") {
+                        alert("Write your answer first..");
+                    } else {
+                        var sub = parseInt(ran_sub_1) - parseInt(ran_sub_2);
+                        if (sub == ans) {
+                            $(".sub_answer").slideDown("slow").html("<div class='alert alert-success mt-1'><b>Well Done !!</b><hr><p>Your Answer is Correct !!</p> <button class='btn-sm btn btn-success' id='sub_next'>Next</button></div>");
+                            $("#sub_next").click(function() {
+                                $("#sub_answer").val("");
+                                $(".sub_answer").html("");
+                                myfun();
+                            });
+                        } else {
+                            $(".sub_answer").html("<div class='alert alert-danger mt-1'><b>Wrong !!</b><hr><p>Your Answer is Wrong !!</p> <button class='btn-sm btn btn-danger' id='sub_try_again'>Try Again</button></div>");
+                            $("#sub_try_again").click(function() {
+                                $("#sub_answer").val("");
+                                $(".sub_answer").html("");
+                            });
+                        }
+                    }
+                });
+            }
+            myfun();
+
+        });
+    </script>
+    <!-- Subtraction data -->
+
+    <!-- multiplication data -->
+    <div class="container text-center mul" style="display: none;" id="Subtraction">
+       
+        <h2>Multiplication</h2>
+        <hr><br>
+        <div class="row">
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-mul-1" class="h2">
+            </div>
+            <div class="d-block m-auto col-8 col-md-4"><br>
+                <h2>x</h2>
+            </div>
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-mul-2" class="h2">
+            </div>
+        </div>
+        <hr class="mt-2">
+        <label for="answer" class="m-auto">Your Answer !</label><br>
+        <div class="row mt-2 text-center">
+            <div class="d-block col-md-4 col-8 m-auto card">
+                <input type="number" id="mul_answer" class="h2">
+            </div>
+        </div><br>
+        <button id="mul_check" class="m-auto btn btn-sm ">Check</button>
+        <div class="mul_answer mt-1">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function myfun() {
+                var ran_mul_1 = Math.floor(Math.random() * 30);
+                var ran_mul_2 = Math.floor(Math.random() * 10);
+
+                var one = $("#num-mul-1").val(ran_mul_1);
+                var two = $("#num-mul-2").val(ran_mul_2);
+
+                $("#mul_check").click(function() {
+                    var ans = $("#mul_answer").val();
+                    if (ans == "") {
+                        alert("Write your answer first..");
+                    } else {
+                        var mul = parseInt(ran_mul_1) * parseInt(ran_mul_2);
+                        if (mul == ans) {
+                            $(".mul_answer").slideDown("slow").html("<div class='alert alert-success mt-1'><b>Well Done !!</b><hr><p>Your Answer is Correct !!</p> <button class='btn-sm btn-success' id='mul_next'>Next</button></div>");
+                            $("#mul_next").click(function() {
+                                $("#mul_answer").val("");
+                                $(".mul_answer").html("");
+                                myfun();
+                            });
+                        } else {
+                            $(".mul_answer").html("<div class='alert alert-danger mt-1'><b>Wrong !!</b><hr><p>Your Answer is Wrong !!</p> <button class='btn-sm btn-danger' id='mul_try_again'>Try Again</button></div>");
+                            $("#mul_try_again").click(function() {
+                                $("#mul_answer").val("");
+                                $(".mul_answer").html("");
+                            });
+                        }
+                    }
+                });
+            }
+            myfun();
+
+        });
+    </script>
+    <!-- multiplication data -->
+
+    <!-- Division data -->
+    <div class="container text-center div" style="display: none;" id="Subtraction">
+      
+        <h2>Division</h2>
+        <hr><br>
+        <div class="row">
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-div-1" class="h2">
+            </div>
+            <div class="d-block m-auto col-8 col-md-4"><br>
+                <h2>/</h2>
+            </div>
+            <div class="d-block m-auto col-8 col-md-4 card card-body">
+                <input type="number" id="num-div-2" class="h2">
+            </div>
+        </div>
+        <hr class="mt-2">
+        <label for="answer" class="m-auto">Your Answer !</label><br>
+        <div class="row mt-2 text-center">
+            <div class="d-block col-md-4 col-8 m-auto card">
+                <input type="number" id="div_answer" class="h2">
+            </div>
+        </div><br>
+        <button id="div_check" class="m-auto btn btn-sm ">Check</button>
+        <div class="div_answer mt-1">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function myfun() {
+                var ran_div_1 = Math.floor(Math.random() * 40) * 2;
+                var ran_div_2 = Math.floor(Math.random() * 5) * 2;
+                if (ran_div_2 == 0) {
+                    ran_div_2 = 2;
+                }
+
+                var one = $("#num-div-1").val(ran_div_1);
+                var two = $("#num-div-2").val(ran_div_2);
+
+                $("#div_check").click(function() {
+                    var ans = $("#div_answer").val();
+                    if (ans == "") {
+                        alert("Write your answer first..");
+                    } else {
+                        var div = ran_div_1 / ran_div_2;
+
+                        if (div == ans) {
+                            $(".div_answer").slideDown("slow").html("<div class='alert alert-success mt-1'><b>Well Done !!</b><hr><p>Your Answer is Correct !!</p> <button class='btn-sm btn btn-success' id='div_next'>Next</button></div>");
+                            $("#div_next").click(function() {
+                                $("#div_answer").val("");
+                                $(".div_answer").html("");
+                                myfun();
+                            });
+                        } else {
+                            $(".div_answer").slideDown("slow").html("<div class='alert alert-danger mt-1'><b>Wrong !!</b><hr><p>Your Answer is Wrong !!</p><button class='btn-sm btn btn-danger' id='div_try_again'>Try Again</button></div>");
+                            $("#div_try_again").click(function() {
+                                $("#div_answer").val("");
+                                $(".div_answer").html("");
+                            });
+                        }
+                    }
+                });
+            }
+            myfun();
+
+        });
+    </script>
+    <section>
+        <footer>
+            <div class="container-fluid mt-4 bg-light">
+                <div class="row">
+                    <div class="d-block m-auto text-center col-10">
+                        <br>
+                        <p>Copyright - 2020<br> Designed and Developed with <span class="font-weight-bold text-success">FUN</span> and <span class="font-weight-bold text-danger">LOVE</span> by <br> <span class="swapnil font-weight-bold">Swapnil Mane : )</span>
+                            <hr>
+                            <span class="text-right"> <span class="font-weight-bold">Contact Me :</span> Swapnilmanew@gmail.com </span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!-- Division data -->
+
+    <!-- Bootstrap Javascript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+
+</html>
