@@ -68,7 +68,7 @@
                         <div class="card-title">
                             <h2>Addition</h2>
                             <hr>
-                            <button class="btn btn-sm" id="addition">Let's jump into it...</button>
+                            <button class="btn btn-sm btn-primary" id="addition">Let's jump into it...</button>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <div class="card-title">
                             <h2>Subtraction</h2>
                             <hr>
-                            <button class="btn btn-sm " id="Subtraction">Let's jump into it...</button>
+                            <button class="btn btn-sm  btn-primary" id="Subtraction">Let's jump into it...</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         <div class="card-title">
                             <h2>Multiplication</h2>
                             <hr>
-                            <button class="btn btn-sm " id="multiplication">Let's jump into it...</button>
+                            <button class="btn btn-sm  btn-primary" id="multiplication">Let's jump into it...</button>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                         <div class="card-title">
                             <h2>Division</h2>
                             <hr>
-                            <button class="btn btn-sm " id="division">Let's jump into it...</button>
+                            <button class="btn btn-sm  btn-primary" id="division">Let's jump into it...</button>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                 <input type="number" id="answer" class="h2">
             </div>
         </div><br>
-        <button id="check" class="m-auto btn btn-sm ">Check</button>
+        <button id="check" class="m-auto btn btn-sm  btn-primary">Check</button>
         <div class="answer mt-1">
         </div>
     </div>
